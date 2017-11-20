@@ -1,0 +1,24 @@
+start memo:
+===================================================================
+1.start zk nodes
+2.modify hadoop configs
+  2.1 slaves  修改slave节点
+  2.2 core-site.xml  修改其中zookeeper服务配置
+  2.3 hdfs-site.xml  修改journalnode节点及namenode配置
+  2.4 yarn-site.xml  修改resourcemanager节点及配置
+
+3.hdfs services
+  3.1 primary namenode: hdfs zkfc -formatZK
+  3.2 primary namemode: hadoop-daemon.sh start journalnode
+  3.3 primary namenode: start-dfs.sh
+  3.4 second  namenode: hdfs namenode -bootstrapStandby
+  3.5 second  namenode: hadoop-daemon.sh start namenode
+
+4.yarn services
+  4.1 primary resourcemanager: start-yarn.sh
+  4.2 second  resourcemanager: yarn-daemon.sh start resourcemanager
+      
+5.history log server
+  5.1 mr-jobhistory-daemon.sh start historyserver
+
+over

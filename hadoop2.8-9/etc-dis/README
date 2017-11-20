@@ -1,0 +1,6 @@
+notice: if you want to deploy in distributed way. you need to modify the files in below:
+  1.hadoop-env.sh : modify JAVA_HOME path
+  2.core-site.xml : modify fs.defaultFS 
+  3.yarn-site.xml : modify yarn.resourcemanager.hostname 
+  4.slaves
+  5.other configs
